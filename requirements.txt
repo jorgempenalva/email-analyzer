@@ -1,0 +1,10 @@
+anthropic==0.18.1
+google-auth==2.16.0
+google-auth-oauthlib==1.0.0
+google-auth-httplib2==0.1.0
+google-api-python-client==2.70.0
+keyring==24.2.0
+keyrings.alt==4.2.0
+schedule==1.2.1
+python-dotenv==1.0.0
+python-decouple==3.8
