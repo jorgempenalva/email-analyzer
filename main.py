@@ -43,6 +43,9 @@ PROCESSED_SPAM_LABEL = 'ProcessedBySpamFilter'
 # Add a global variable to track spam emails
 spam_emails = []
 
+# Add a global variable to track last check time
+last_check_time = None
+
 def get_credentials():
     """Get and refresh Google OAuth credentials."""
     creds = None
@@ -98,16 +101,29 @@ def get_gmail_service():
 
 def get_unread_emails(service, max_results=10):
     """Get unread emails from the inbox."""
+    global last_check_time
+    
     try:
+        # Build the query with time filter if we have a last check time
+        query = 'in:inbox is:unread -in:spam -in:trash -category:promotions -category:forums -category:updates -category:social'
+        
+        if last_check_time:
+            # Convert to Gmail's date format (YYYY/MM/DD)
+            date_str = last_check_time.strftime('%Y/%m/%d')
+            query += f' after:{date_str}'
+        
         # Get messages that are unread and in the inbox
-        # Using q parameter to be more explicit about what we want
         results = service.users().messages().list(
             userId='me',
-            q='in:inbox is:unread -in:spam -in:trash -category:promotions -category:forums -category:updates -category:social',
+            q=query,
             maxResults=max_results
         ).execute()
         
         messages = results.get('messages', [])
+        
+        # Update last check time
+        last_check_time = datetime.now()
+        
         return messages
     except HttpError as error:
         logger.error(f"Error retrieving emails: {error}")
@@ -304,7 +320,7 @@ def send_summary_email(service):
 
 def process_emails():
     """Main function to process emails."""
-    global spam_emails
+    global spam_emails, last_check_time
     
     try:
         logger.info("Starting email processing")
@@ -315,7 +331,11 @@ def process_emails():
         
         # Get unread emails
         unread_emails = get_unread_emails(gmail_service)
-        logger.info(f"Found {len(unread_emails)} unread emails")
+        logger.info(f"Found {len(unread_emails)} unread emails since last check")
+        
+        if not unread_emails:
+            logger.info("No new emails to process")
+            return
         
         for email in unread_emails:
             email_content = get_email_content(gmail_service, email['id'])
@@ -404,7 +424,7 @@ def main():
         process_emails()
         
         # Schedule to run every hour
-        schedule.every(60).minutes.do(process_emails)
+        schedule.every(1).minutes.do(process_emails)
         
         # Schedule daily summary email at 8:00 AM
         schedule.every().day.at("08:00").do(send_daily_summary)
