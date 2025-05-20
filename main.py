@@ -25,7 +25,7 @@ logging.basicConfig(
     handlers=[
         logging.FileHandler("email_analyzer.log"),
         logging.StreamHandler()
-  send_daily_summary  ]
+    ]
 )
 logger = logging.getLogger(__name__)
 
