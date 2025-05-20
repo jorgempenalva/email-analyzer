@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 # Gmail API scopes
 SCOPES = [
     'https://www.googleapis.com/auth/gmail.modify',
-    'https://www.googleapis.com/auth/contacts.readonly'
+    'https://www.googleapis.com/auth/contacts'
 ]
 
 # Keyring service names
@@ -58,11 +58,16 @@ def get_credentials():
         import json
         creds = Credentials.from_authorized_user_info(json.loads(token_json), SCOPES)
     
-    # If credentials don't exist or are invalid, let the user log in
-    if not creds or not creds.valid:
+    # If credentials don't exist, are invalid, or scopes have changed, let the user log in
+    if not creds or not creds.valid or set(creds.scopes) != set(SCOPES):
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
+            try:
+                creds.refresh(Request())
+            except:
+                # If refresh fails, we'll need to re-authenticate
+                creds = None
+        
+        if not creds:
             # Load client secrets from keyring
             client_secrets = keyring.get_password(f"{GOOGLE_CREDS_SERVICE}_secrets", USER_ACCOUNT)
             if not client_secrets:
@@ -324,8 +329,9 @@ def send_summary_email(service):
 def is_in_contacts(service, email_address):
     """Check if the sender is in contacts (including Other Contacts)."""
     try:
-        # Build the People API service
-        people_service = build('people', 'v1', credentials=service._credentials)
+        # Get credentials and build the People API service
+        creds = get_credentials()
+        people_service = build('people', 'v1', credentials=creds)
         
         # Search for the email in contacts
         results = people_service.people().searchContacts(
@@ -467,7 +473,7 @@ def main():
         process_emails()
         
         # Schedule to run every hour
-        schedule.every(1).minutes.do(process_emails)
+        schedule.every(5).minutes.do(process_emails)
         
         # Schedule daily summary email at 8:00 AM
         schedule.every().day.at("08:00").do(send_daily_summary)

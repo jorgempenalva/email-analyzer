@@ -553,3 +553,187 @@
 2025-05-16 22:18:56,178 - __main__ - INFO - Found 0 unread emails since last check
 2025-05-16 22:18:56,179 - __main__ - INFO - No new emails to process
 2025-05-16 22:19:44,885 - __main__ - INFO - Email analyzer service stopped
+2025-05-20 11:27:59,041 - __main__ - INFO - Starting email processing
+2025-05-20 11:27:59,252 - __main__ - ERROR - Error in process_emails: ('invalid_scope: Bad Request', {'error': 'invalid_scope', 'error_description': 'Bad Request'})
+2025-05-20 11:27:59,254 - __main__ - INFO - Email analyzer service started
+2025-05-20 11:28:29,471 - __main__ - INFO - Email analyzer service stopped
+2025-05-20 11:28:32,336 - __main__ - INFO - Starting email processing
+2025-05-20 11:28:32,817 - __main__ - ERROR - Error in process_emails: ('invalid_scope: Bad Request', {'error': 'invalid_scope', 'error_description': 'Bad Request'})
+2025-05-20 11:28:32,820 - __main__ - INFO - Email analyzer service started
+2025-05-20 11:29:07,253 - __main__ - INFO - Email analyzer service stopped
+2025-05-20 11:29:08,950 - __main__ - INFO - Starting email processing
+2025-05-20 11:29:14,104 - google_auth_oauthlib.flow - INFO - "GET /?state=M5rXn8AQCabwRuRs78Eh3uoFJbPSCs&code=4/0AUJR-x6GGHf5uQl66o-j2XHXaNIqkiQLHGbWSLwhieTWX1VVJTz2ilgu7Y8Kd97X_qBsDA&scope=https://www.googleapis.com/auth/gmail.modify%20https://www.googleapis.com/auth/contacts HTTP/1.1" 200 65
+2025-05-20 11:29:14,502 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:29:14,816 - __main__ - INFO - Found 10 unread emails since last check
+2025-05-20 11:29:14,944 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-20 11:29:14,946 - __main__ - ERROR - Error in process_emails: 'Resource' object has no attribute '_credentials'
+2025-05-20 11:29:14,950 - __main__ - INFO - Email analyzer service started
+2025-05-20 11:29:29,033 - __main__ - INFO - Email analyzer service stopped
+2025-05-20 11:29:51,567 - __main__ - INFO - Starting email processing
+2025-05-20 11:29:51,570 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:29:51,745 - __main__ - INFO - Found 10 unread emails since last check
+2025-05-20 11:29:51,858 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-20 11:29:51,867 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:29:52,045 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:29:52,045 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=jkochman%40apib.com&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'serviceTitle': 'People API', 'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342', 'service': 'people.googleapis.com', 'containerInfo': '485273487342', 'consumer': 'projects/485273487342'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:29:53,399 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:29:53,406 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:29:53,406 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-20 11:29:53,522 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-20 11:29:53,526 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:29:53,653 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:29:53,653 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=jkochman%40apib.com&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342', 'service': 'people.googleapis.com', 'consumer': 'projects/485273487342', 'containerInfo': '485273487342', 'serviceTitle': 'People API'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:29:55,122 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:29:55,123 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:29:55,124 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-20 11:29:55,252 - __main__ - INFO - Processing email: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-20 11:29:55,257 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:29:55,385 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:29:55,385 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=paul%40gtmfund.com&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'containerInfo': '485273487342', 'service': 'people.googleapis.com', 'serviceTitle': 'People API', 'consumer': 'projects/485273487342', 'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:29:56,818 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:29:56,820 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:29:56,820 - __main__ - INFO - Non-spam email left unread: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-20 11:29:56,960 - __main__ - INFO - Processing email: Re: Jorge?
+2025-05-20 11:29:56,983 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:29:57,120 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:29:57,120 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=reyes.arz%40gomagnasummitllc.com&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342', 'service': 'people.googleapis.com', 'serviceTitle': 'People API', 'consumer': 'projects/485273487342', 'containerInfo': '485273487342'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:29:58,103 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:29:58,108 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:29:58,108 - __main__ - INFO - Non-spam email left unread: Re: Jorge?
+2025-05-20 11:29:58,259 - __main__ - INFO - Processing email: Zypsy: Weekly billing summary
+2025-05-20 11:29:58,266 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:29:58,404 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:29:58,405 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=shoko%40zypsy.com&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'containerInfo': '485273487342', 'serviceTitle': 'People API', 'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342', 'service': 'people.googleapis.com', 'consumer': 'projects/485273487342'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:29:59,587 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:29:59,589 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:29:59,590 - __main__ - INFO - Non-spam email left unread: Zypsy: Weekly billing summary
+2025-05-20 11:29:59,738 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-20 11:29:59,746 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:29:59,880 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:29:59,880 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=jkochman%40apib.com&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'serviceTitle': 'People API', 'service': 'people.googleapis.com', 'containerInfo': '485273487342', 'consumer': 'projects/485273487342', 'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:30:00,934 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:00,935 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:00,935 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-20 11:30:01,073 - __main__ - INFO - Processing email: your taxes, Jorge
+2025-05-20 11:30:01,080 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:01,222 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:30:01,222 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=mark.pineda%40meetbookkeeper.com&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'containerInfo': '485273487342', 'service': 'people.googleapis.com', 'consumer': 'projects/485273487342', 'serviceTitle': 'People API', 'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:30:01,625 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:01,631 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:01,631 - __main__ - INFO - Non-spam email left unread: your taxes, Jorge
+2025-05-20 11:30:01,774 - __main__ - INFO - Processing email: Updated invitation: Weekly All-Hands @ Tue Apr 22, 2025 7am - 7:30am (PDT) (Jorge Miguel Penalva Zambrano)
+2025-05-20 11:30:01,779 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:01,902 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:30:01,902 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=faguero%40lang.ai&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'serviceTitle': 'People API', 'containerInfo': '485273487342', 'service': 'people.googleapis.com', 'consumer': 'projects/485273487342', 'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:30:03,989 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:03,991 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:03,991 - __main__ - INFO - Non-spam email left unread: Updated invitation: Weekly All-Hands @ Tue Apr 22, 2025 7am - 7:30am (PDT) (Jorge Miguel Penalva Zambrano)
+2025-05-20 11:30:04,127 - __main__ - INFO - Processing email: [CORRECTION] Re: Snowflake will deprecate password-only sign-ins
+2025-05-20 11:30:04,134 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:04,268 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:30:04,269 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=product-notifications%40reply.snowflake.com&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'serviceTitle': 'People API', 'containerInfo': '485273487342', 'consumer': 'projects/485273487342', 'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342', 'service': 'people.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:30:04,715 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:04,717 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:04,717 - __main__ - INFO - Non-spam email left unread: [CORRECTION] Re: Snowflake will deprecate password-only sign-ins
+2025-05-20 11:30:04,839 - __main__ - INFO - Processing email: Enrique - Looking to exit?
+2025-05-20 11:30:04,847 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:04,966 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-20 11:30:04,966 - __main__ - ERROR - Error checking contacts: <HttpError 403 when requesting https://people.googleapis.com/v1/people:searchContacts?query=julia%40trueb2bforce.com&readMask=emailAddresses&alt=json returned "People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'activationUrl': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342', 'service': 'people.googleapis.com', 'serviceTitle': 'People API', 'consumer': 'projects/485273487342', 'containerInfo': '485273487342'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'People API has not been used in project 485273487342 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=485273487342'}]}]">
+2025-05-20 11:30:06,087 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:06,089 - __main__ - INFO - Email analysis result: YES
+2025-05-20 11:30:06,350 - __main__ - INFO - Email moved to spam: Enrique - Looking to exit?
+2025-05-20 11:30:06,646 - __main__ - INFO - Sales outreach email marked as read: Enrique - Looking to exit?
+2025-05-20 11:30:06,647 - __main__ - INFO - Email processing completed
+2025-05-20 11:30:06,647 - __main__ - INFO - Email analyzer service started
+2025-05-20 11:30:40,816 - __main__ - INFO - Email analyzer service stopped
+2025-05-20 11:30:43,119 - __main__ - INFO - Starting email processing
+2025-05-20 11:30:43,123 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:43,318 - __main__ - INFO - Found 10 unread emails since last check
+2025-05-20 11:30:43,443 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-20 11:30:43,452 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:43,638 - __main__ - INFO - jkochman@apib.com not found in contacts
+2025-05-20 11:30:44,438 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:44,448 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:44,448 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-20 11:30:44,582 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-20 11:30:44,590 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:44,762 - __main__ - INFO - jkochman@apib.com not found in contacts
+2025-05-20 11:30:46,214 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:46,218 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:46,221 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-20 11:30:46,345 - __main__ - INFO - Processing email: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-20 11:30:46,352 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:46,525 - __main__ - INFO - paul@gtmfund.com not found in contacts
+2025-05-20 11:30:48,060 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:48,062 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:48,063 - __main__ - INFO - Non-spam email left unread: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-20 11:30:48,209 - __main__ - INFO - Processing email: Re: Jorge?
+2025-05-20 11:30:48,216 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:48,402 - __main__ - INFO - reyes.arz@gomagnasummitllc.com not found in contacts
+2025-05-20 11:30:49,419 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:49,425 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:49,425 - __main__ - INFO - Non-spam email left unread: Re: Jorge?
+2025-05-20 11:30:49,553 - __main__ - INFO - Processing email: Zypsy: Weekly billing summary
+2025-05-20 11:30:49,561 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:49,718 - __main__ - INFO - shoko@zypsy.com not found in contacts
+2025-05-20 11:30:50,235 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:50,237 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:50,238 - __main__ - INFO - Non-spam email left unread: Zypsy: Weekly billing summary
+2025-05-20 11:30:50,387 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-20 11:30:50,395 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:50,547 - __main__ - INFO - jkochman@apib.com not found in contacts
+2025-05-20 11:30:51,601 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:51,603 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:51,603 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-20 11:30:51,730 - __main__ - INFO - Processing email: your taxes, Jorge
+2025-05-20 11:30:51,737 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:52,057 - __main__ - INFO - mark.pineda@meetbookkeeper.com not found in contacts
+2025-05-20 11:30:52,629 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:52,632 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:52,632 - __main__ - INFO - Non-spam email left unread: your taxes, Jorge
+2025-05-20 11:30:52,791 - __main__ - INFO - Processing email: Updated invitation: Weekly All-Hands @ Tue Apr 22, 2025 7am - 7:30am (PDT) (Jorge Miguel Penalva Zambrano)
+2025-05-20 11:30:52,822 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:52,999 - __main__ - INFO - faguero@lang.ai not found in contacts
+2025-05-20 11:30:54,618 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:54,620 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:54,620 - __main__ - INFO - Non-spam email left unread: Updated invitation: Weekly All-Hands @ Tue Apr 22, 2025 7am - 7:30am (PDT) (Jorge Miguel Penalva Zambrano)
+2025-05-20 11:30:54,751 - __main__ - INFO - Processing email: [CORRECTION] Re: Snowflake will deprecate password-only sign-ins
+2025-05-20 11:30:54,759 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:54,931 - __main__ - INFO - product-notifications@reply.snowflake.com not found in contacts
+2025-05-20 11:30:55,380 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:55,384 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:30:55,384 - __main__ - INFO - Non-spam email left unread: [CORRECTION] Re: Snowflake will deprecate password-only sign-ins
+2025-05-20 11:30:55,523 - __main__ - INFO - Processing email: Enrique - question
+2025-05-20 11:30:55,530 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:30:55,700 - __main__ - INFO - h.bennett@renaissanceserviceshq.info not found in contacts
+2025-05-20 11:30:56,677 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:30:56,681 - __main__ - INFO - Email analysis result: YES
+2025-05-20 11:30:57,028 - __main__ - INFO - Email moved to spam: Enrique - question
+2025-05-20 11:30:57,297 - __main__ - INFO - Sales outreach email marked as read: Enrique - question
+2025-05-20 11:30:57,298 - __main__ - INFO - Email processing completed
+2025-05-20 11:30:57,299 - __main__ - INFO - Email analyzer service started
+2025-05-20 11:31:57,514 - __main__ - INFO - Starting email processing
+2025-05-20 11:31:57,528 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:31:57,756 - __main__ - INFO - Found 0 unread emails since last check
+2025-05-20 11:31:57,757 - __main__ - INFO - No new emails to process
+2025-05-20 11:32:57,995 - __main__ - INFO - Starting email processing
+2025-05-20 11:32:58,010 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:32:58,200 - __main__ - INFO - Found 0 unread emails since last check
+2025-05-20 11:32:58,200 - __main__ - INFO - No new emails to process
+2025-05-20 11:33:58,419 - __main__ - INFO - Starting email processing
+2025-05-20 11:33:58,430 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:33:58,636 - __main__ - INFO - Found 0 unread emails since last check
+2025-05-20 11:33:58,637 - __main__ - INFO - No new emails to process
+2025-05-20 11:34:58,863 - __main__ - INFO - Starting email processing
+2025-05-20 11:34:58,876 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:34:59,065 - __main__ - INFO - Found 0 unread emails since last check
+2025-05-20 11:34:59,065 - __main__ - INFO - No new emails to process
+2025-05-20 11:35:59,282 - __main__ - INFO - Starting email processing
+2025-05-20 11:35:59,295 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:35:59,545 - __main__ - INFO - Found 0 unread emails since last check
+2025-05-20 11:35:59,545 - __main__ - INFO - No new emails to process
+2025-05-20 11:36:59,785 - __main__ - INFO - Starting email processing
+2025-05-20 11:36:59,804 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:37:00,048 - __main__ - INFO - Found 0 unread emails since last check
+2025-05-20 11:37:00,048 - __main__ - INFO - No new emails to process
+2025-05-20 11:37:40,599 - __main__ - INFO - Email analyzer service stopped
