@@ -25,12 +25,15 @@ logging.basicConfig(
     handlers=[
         logging.FileHandler("email_analyzer.log"),
         logging.StreamHandler()
-    ]
+  send_daily_summary  ]
 )
 logger = logging.getLogger(__name__)
 
 # Gmail API scopes
-SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
+SCOPES = [
+    'https://www.googleapis.com/auth/gmail.modify',
+    'https://www.googleapis.com/auth/contacts.readonly'
+]
 
 # Keyring service names
 GOOGLE_CREDS_SERVICE = 'email_analyzer_google'
@@ -318,6 +321,48 @@ def send_summary_email(service):
     except HttpError as error:
         logger.error(f"Error sending summary email: {error}")
 
+def is_in_contacts(service, email_address):
+    """Check if the sender is in contacts (including Other Contacts)."""
+    try:
+        # Build the People API service
+        people_service = build('people', 'v1', credentials=service._credentials)
+        
+        # Search for the email in contacts
+        results = people_service.people().searchContacts(
+            query=email_address,
+            readMask='emailAddresses'
+        ).execute()
+        
+        # Check if we found any matches
+        for person in results.get('results', []):
+            for email in person.get('person', {}).get('emailAddresses', []):
+                if email.get('value', '').lower() == email_address.lower():
+                    logger.info(f"Found {email_address} in contacts")
+                    return True
+        
+        logger.info(f"{email_address} not found in contacts")
+        return False
+        
+    except HttpError as error:
+        logger.error(f"Error checking contacts: {error}")
+        return False
+
+def should_process_as_spam(service, client, email_content):
+    """Determine if an email should be processed as spam."""
+    # Extract email address from sender
+    email_address = extract_email_address(email_content['sender'])
+    if not email_address:
+        return False
+    
+    # First check if it's in contacts
+    if is_in_contacts(service, email_address):
+        logger.info(f"Sender {email_address} is in contacts - skipping spam check")
+        return False
+    
+    # If not in contacts, check if it's sales outreach
+    is_sales, _ = is_sales_outreach(client, email_content)
+    return is_sales
+
 def process_emails():
     """Main function to process emails."""
     global spam_emails, last_check_time
@@ -344,10 +389,8 @@ def process_emails():
                 
             logger.info(f"Processing email: {email_content['subject']}")
             
-            # Check if it's a sales outreach
-            is_sales, analysis = is_sales_outreach(anthropic_client, email_content)
-            
-            if is_sales:
+            # Check if it should be processed as spam
+            if should_process_as_spam(gmail_service, anthropic_client, email_content):
                 # First add to spam_emails list before moving to spam
                 spam_emails.append(email_content)
                 
@@ -368,7 +411,7 @@ def process_emails():
                 logger.info(f"Sales outreach email marked as read: {email_content['subject']}")
             else:
                 # Do nothing - leave unread for review
-                logger.info(f"Non-sales email left unread: {email_content['subject']}")
+                logger.info(f"Non-spam email left unread: {email_content['subject']}")
                 
         logger.info("Email processing completed")
     except Exception as e:
