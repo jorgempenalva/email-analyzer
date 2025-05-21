@@ -737,3 +737,247 @@
 2025-05-20 11:37:00,048 - __main__ - INFO - Found 0 unread emails since last check
 2025-05-20 11:37:00,048 - __main__ - INFO - No new emails to process
 2025-05-20 11:37:40,599 - __main__ - INFO - Email analyzer service stopped
+2025-05-20 11:48:28,899 - __main__ - INFO - Starting email processing
+2025-05-20 11:48:28,904 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:48:29,152 - __main__ - INFO - Found 10 unread emails since last check
+2025-05-20 11:48:29,319 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-20 11:48:29,331 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:48:29,562 - __main__ - INFO - jkochman@apib.com not found in contacts
+2025-05-20 11:48:31,144 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:48:31,157 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:48:31,158 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-20 11:48:31,296 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-20 11:48:31,304 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:48:31,487 - __main__ - INFO - jkochman@apib.com not found in contacts
+2025-05-20 11:48:32,574 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:48:32,579 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:48:32,579 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-20 11:48:32,716 - __main__ - INFO - Processing email: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-20 11:48:32,724 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:48:32,904 - __main__ - INFO - paul@gtmfund.com not found in contacts
+2025-05-20 11:48:34,315 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:48:34,319 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:48:34,319 - __main__ - INFO - Non-spam email left unread: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-20 11:48:34,488 - __main__ - INFO - Processing email: Re: Jorge?
+2025-05-20 11:48:34,497 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:48:34,717 - __main__ - INFO - reyes.arz@gomagnasummitllc.com not found in contacts
+2025-05-20 11:48:35,902 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-20 11:48:35,903 - __main__ - INFO - Email analysis result: NO
+2025-05-20 11:48:35,903 - __main__ - INFO - Non-spam email left unread: Re: Jorge?
+2025-05-20 11:48:36,022 - __main__ - INFO - Processing email: Zypsy: Weekly billing summary
+2025-05-20 11:48:36,027 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-20 11:48:36,232 - __main__ - INFO - shoko@zypsy.com not found in contacts
+2025-05-20 11:48:37,129 - __main__ - INFO - Email analyzer service stopped
+2025-05-21 07:59:18,010 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:06:31,155 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-21 08:07:42,932 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-21 08:08:35,448 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:08:43,754 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-21 08:12:27,772 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:13:08,313 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:13:08,512 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-21 08:14:05,847 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:14:27,187 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:14:57,035 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:15:35,519 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:16:09,270 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:17:23,377 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:17:23,517 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-05-21 08:58:45,602 - __main__ - INFO - Starting email processing
+2025-05-21 08:58:54,342 - google_auth_oauthlib.flow - INFO - "GET /?state=ciViRPpdSm2C1aBRAwJyoHeM4Vsk19&code=4/0AUJR-x4_1EBO8YNY0bvECyrjaS3HR_VKT4Ox4xYgjC7plM9AU563YDJWFMg_f25G6cBDdA&scope=https://www.googleapis.com/auth/gmail.modify%20https://www.googleapis.com/auth/contacts%20https://www.googleapis.com/auth/contacts.other.readonly%20https://www.googleapis.com/auth/directory.readonly HTTP/1.1" 200 65
+2025-05-21 08:58:54,623 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:58:54,927 - __main__ - INFO - Found 10 unread emails since last check
+2025-05-21 08:58:55,080 - __main__ - INFO - Processing email: Updated invitation from an unknown sender: Jorge Penalva <> Renaud Visage @ Fri May 23, 2025 7:30am - 8am (PDT) (jpenalva@lang.ai)
+2025-05-21 08:58:55,087 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:58:55,300 - __main__ - INFO - renaud@slate.vc not found in contacts
+2025-05-21 08:58:56,716 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 08:58:56,726 - __main__ - INFO - Email analysis result: NO
+2025-05-21 08:58:56,727 - __main__ - INFO - Non-spam email left unread: Updated invitation from an unknown sender: Jorge Penalva <> Renaud Visage @ Fri May 23, 2025 7:30am - 8am (PDT) (jpenalva@lang.ai)
+2025-05-21 08:58:56,847 - __main__ - INFO - Processing email: Worth a Look, Jorge?
+2025-05-21 08:58:56,859 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:58:57,034 - __main__ - INFO - tamiller@millermomentum.com not found in contacts
+2025-05-21 08:58:57,584 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 08:58:57,592 - __main__ - INFO - Email analysis result: YES
+2025-05-21 08:58:57,861 - __main__ - INFO - Email moved to spam: Worth a Look, Jorge?
+2025-05-21 08:58:58,190 - __main__ - INFO - Sales outreach email marked as read: Worth a Look, Jorge?
+2025-05-21 08:58:58,434 - __main__ - INFO - Processing email: RE: Lang.ai SOC2+HIPAA
+2025-05-21 08:58:58,442 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:58:58,614 - __main__ - INFO - MGenson@darata.com not found in contacts
+2025-05-21 08:59:00,213 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 500 Internal Server Error"
+2025-05-21 08:59:00,214 - __main__ - ERROR - Error analyzing email with Claude: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}}
+2025-05-21 08:59:00,214 - __main__ - INFO - Non-spam email left unread: RE: Lang.ai SOC2+HIPAA
+2025-05-21 08:59:00,345 - __main__ - INFO - Processing email: ideas for you
+2025-05-21 08:59:00,352 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:59:00,533 - __main__ - INFO - aidan.crego@joinseamlessaihq.co not found in contacts
+2025-05-21 08:59:00,996 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 08:59:01,000 - __main__ - INFO - Email analysis result: YES
+2025-05-21 08:59:01,273 - __main__ - INFO - Email moved to spam: ideas for you
+2025-05-21 08:59:01,508 - __main__ - INFO - Sales outreach email marked as read: ideas for you
+2025-05-21 08:59:01,634 - __main__ - INFO - Processing email: RE: Outsourcing Top Tech Talent with Fekra Egypt!
+2025-05-21 08:59:01,639 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:59:01,801 - __main__ - INFO - mohamed@besthirewithfekra.com not found in contacts
+2025-05-21 08:59:02,593 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 08:59:02,598 - __main__ - INFO - Email analysis result: YES
+2025-05-21 08:59:02,861 - __main__ - INFO - Email moved to spam: RE: Outsourcing Top Tech Talent with Fekra Egypt!
+2025-05-21 08:59:03,119 - __main__ - INFO - Sales outreach email marked as read: RE: Outsourcing Top Tech Talent with Fekra Egypt!
+2025-05-21 08:59:03,322 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-21 08:59:03,326 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:59:03,483 - __main__ - INFO - jkochman@apib.com not found in contacts
+2025-05-21 08:59:04,003 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 08:59:04,005 - __main__ - INFO - Email analysis result: NO
+2025-05-21 08:59:04,005 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-21 08:59:04,152 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-21 08:59:04,159 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:59:04,342 - __main__ - INFO - jkochman@apib.com not found in contacts
+2025-05-21 08:59:05,159 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 08:59:05,162 - __main__ - INFO - Email analysis result: NO
+2025-05-21 08:59:05,162 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-21 08:59:05,298 - __main__ - INFO - Processing email: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-21 08:59:05,305 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:59:05,495 - __main__ - INFO - paul@gtmfund.com not found in contacts
+2025-05-21 08:59:06,959 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 08:59:06,961 - __main__ - INFO - Email analysis result: NO
+2025-05-21 08:59:06,961 - __main__ - INFO - Non-spam email left unread: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-21 08:59:07,084 - __main__ - INFO - Processing email: Re: Jorge?
+2025-05-21 08:59:07,089 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:59:07,279 - __main__ - INFO - reyes.arz@gomagnasummitllc.com not found in contacts
+2025-05-21 08:59:08,184 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 08:59:08,186 - __main__ - INFO - Email analysis result: NO
+2025-05-21 08:59:08,186 - __main__ - INFO - Non-spam email left unread: Re: Jorge?
+2025-05-21 08:59:08,359 - __main__ - INFO - Processing email: Zypsy: Weekly billing summary
+2025-05-21 08:59:08,370 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 08:59:08,549 - __main__ - INFO - shoko@zypsy.com not found in contacts
+2025-05-21 08:59:09,515 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 08:59:09,519 - __main__ - INFO - Email analysis result: NO
+2025-05-21 08:59:09,520 - __main__ - INFO - Non-spam email left unread: Zypsy: Weekly billing summary
+2025-05-21 08:59:09,520 - __main__ - INFO - Email processing completed
+2025-05-21 08:59:09,520 - __main__ - INFO - Email analyzer service started
+2025-05-21 08:59:19,354 - __main__ - INFO - Email analyzer service stopped
+2025-05-21 08:59:36,871 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:36,275 - __main__ - INFO - Starting email processing
+2025-05-21 09:03:36,280 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:36,489 - __main__ - INFO - Found 10 unread emails since last check
+2025-05-21 09:03:36,639 - __main__ - INFO - Processing email: Updated invitation from an unknown sender: Jorge Penalva <> Renaud Visage @ Fri May 23, 2025 7:30am - 8am (PDT) (jpenalva@lang.ai)
+2025-05-21 09:03:36,648 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:37,168 - __main__ - INFO - renaud@slate.vc not found in any contacts
+2025-05-21 09:03:38,540 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:03:38,552 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:03:38,552 - __main__ - INFO - Non-spam email left unread: Updated invitation from an unknown sender: Jorge Penalva <> Renaud Visage @ Fri May 23, 2025 7:30am - 8am (PDT) (jpenalva@lang.ai)
+2025-05-21 09:03:38,749 - __main__ - INFO - Processing email: RE: Lang.ai SOC2+HIPAA
+2025-05-21 09:03:38,754 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:39,373 - __main__ - INFO - MGenson@darata.com not found in any contacts
+2025-05-21 09:03:40,900 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 500 Internal Server Error"
+2025-05-21 09:03:40,901 - __main__ - ERROR - Error analyzing email with Claude: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}}
+2025-05-21 09:03:40,902 - __main__ - INFO - Non-spam email left unread: RE: Lang.ai SOC2+HIPAA
+2025-05-21 09:03:41,049 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-21 09:03:41,059 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:41,618 - __main__ - INFO - jkochman@apib.com not found in any contacts
+2025-05-21 09:03:42,199 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:03:42,202 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:03:42,203 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-21 09:03:42,339 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-21 09:03:42,345 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:42,945 - __main__ - INFO - jkochman@apib.com not found in any contacts
+2025-05-21 09:03:43,526 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:03:43,530 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:03:43,530 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-21 09:03:43,711 - __main__ - INFO - Processing email: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-21 09:03:43,717 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:44,211 - __main__ - INFO - paul@gtmfund.com not found in any contacts
+2025-05-21 09:03:45,675 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:03:45,678 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:03:45,678 - __main__ - INFO - Non-spam email left unread: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-21 09:03:45,784 - __main__ - INFO - Processing email: Re: Jorge?
+2025-05-21 09:03:45,791 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:46,330 - __main__ - INFO - reyes.arz@gomagnasummitllc.com not found in any contacts
+2025-05-21 09:03:47,533 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:03:47,536 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:03:47,536 - __main__ - INFO - Non-spam email left unread: Re: Jorge?
+2025-05-21 09:03:47,724 - __main__ - INFO - Processing email: Zypsy: Weekly billing summary
+2025-05-21 09:03:47,730 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:48,381 - __main__ - INFO - shoko@zypsy.com not found in any contacts
+2025-05-21 09:03:49,136 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:03:49,137 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:03:49,138 - __main__ - INFO - Non-spam email left unread: Zypsy: Weekly billing summary
+2025-05-21 09:03:49,282 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-21 09:03:49,290 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:49,907 - __main__ - INFO - jkochman@apib.com not found in any contacts
+2025-05-21 09:03:50,502 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:03:50,505 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:03:50,505 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-21 09:03:50,652 - __main__ - INFO - Processing email: your taxes, Jorge
+2025-05-21 09:03:50,658 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:51,246 - __main__ - INFO - mark.pineda@meetbookkeeper.com not found in any contacts
+2025-05-21 09:03:51,657 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:03:51,661 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:03:51,662 - __main__ - INFO - Non-spam email left unread: your taxes, Jorge
+2025-05-21 09:03:51,793 - __main__ - INFO - Processing email: Updated invitation: Weekly All-Hands @ Tue Apr 22, 2025 7am - 7:30am (PDT) (Jorge Miguel Penalva Zambrano)
+2025-05-21 09:03:51,799 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:03:52,362 - __main__ - INFO - faguero@lang.ai not found in any contacts
+2025-05-21 09:03:53,782 - __main__ - INFO - Email analyzer service stopped
+2025-05-21 09:05:06,195 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:06:04,785 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:06:21,218 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:06:52,237 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:07:41,602 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:08:11,576 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:15,226 - __main__ - INFO - Starting email processing
+2025-05-21 09:09:15,230 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:15,464 - __main__ - INFO - Found 10 unread emails since last check
+2025-05-21 09:09:15,585 - __main__ - INFO - Processing email: Updated invitation from an unknown sender: Jorge Penalva <> Renaud Visage @ Fri May 23, 2025 7:30am - 8am (PDT) (jpenalva@lang.ai)
+2025-05-21 09:09:15,590 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:17,645 - __main__ - INFO - renaud@slate.vc not found in Other Contacts
+2025-05-21 09:09:19,096 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:09:19,110 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:09:19,110 - __main__ - INFO - Non-spam email left unread: Updated invitation from an unknown sender: Jorge Penalva <> Renaud Visage @ Fri May 23, 2025 7:30am - 8am (PDT) (jpenalva@lang.ai)
+2025-05-21 09:09:19,303 - __main__ - INFO - Processing email: RE: Lang.ai SOC2+HIPAA
+2025-05-21 09:09:19,311 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:20,800 - __main__ - INFO - Found MGenson@darata.com in Other Contacts
+2025-05-21 09:09:20,801 - __main__ - INFO - Sender MGenson@darata.com is in contacts - skipping spam check
+2025-05-21 09:09:20,801 - __main__ - INFO - Non-spam email left unread: RE: Lang.ai SOC2+HIPAA
+2025-05-21 09:09:20,923 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-21 09:09:20,931 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:22,567 - __main__ - INFO - Found jkochman@apib.com in Other Contacts
+2025-05-21 09:09:22,568 - __main__ - INFO - Sender jkochman@apib.com is in contacts - skipping spam check
+2025-05-21 09:09:22,568 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-21 09:09:22,688 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-21 09:09:22,697 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:24,366 - __main__ - INFO - Found jkochman@apib.com in Other Contacts
+2025-05-21 09:09:24,367 - __main__ - INFO - Sender jkochman@apib.com is in contacts - skipping spam check
+2025-05-21 09:09:24,367 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-21 09:09:24,496 - __main__ - INFO - Processing email: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-21 09:09:24,504 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:26,302 - __main__ - INFO - Found paul@gtmfund.com in Other Contacts
+2025-05-21 09:09:26,302 - __main__ - INFO - Sender paul@gtmfund.com is in contacts - skipping spam check
+2025-05-21 09:09:26,302 - __main__ - INFO - Non-spam email left unread: Updated invitation with note: Jorge Penalva and Paul Irving @ Tue May 6, 2025 12:30pm - 1pm (PDT) (jpenalva@lang.ai)
+2025-05-21 09:09:26,427 - __main__ - INFO - Processing email: Re: Jorge?
+2025-05-21 09:09:26,433 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:28,217 - __main__ - INFO - reyes.arz@gomagnasummitllc.com not found in Other Contacts
+2025-05-21 09:09:28,836 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:09:28,839 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:09:28,840 - __main__ - INFO - Non-spam email left unread: Re: Jorge?
+2025-05-21 09:09:28,966 - __main__ - INFO - Processing email: Zypsy: Weekly billing summary
+2025-05-21 09:09:28,976 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:30,892 - __main__ - INFO - Found shoko@zypsy.com in Other Contacts
+2025-05-21 09:09:30,894 - __main__ - INFO - Sender shoko@zypsy.com is in contacts - skipping spam check
+2025-05-21 09:09:30,894 - __main__ - INFO - Non-spam email left unread: Zypsy: Weekly billing summary
+2025-05-21 09:09:31,033 - __main__ - INFO - Processing email: Accepted: Jorge/Jim
+2025-05-21 09:09:31,039 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:32,897 - __main__ - INFO - Found jkochman@apib.com in Other Contacts
+2025-05-21 09:09:32,897 - __main__ - INFO - Sender jkochman@apib.com is in contacts - skipping spam check
+2025-05-21 09:09:32,897 - __main__ - INFO - Non-spam email left unread: Accepted: Jorge/Jim
+2025-05-21 09:09:33,066 - __main__ - INFO - Processing email: your taxes, Jorge
+2025-05-21 09:09:33,074 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:35,005 - __main__ - INFO - mark.pineda@meetbookkeeper.com not found in Other Contacts
+2025-05-21 09:09:35,465 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:09:35,468 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:09:35,468 - __main__ - INFO - Non-spam email left unread: your taxes, Jorge
+2025-05-21 09:09:35,603 - __main__ - INFO - Processing email: Updated invitation: Weekly All-Hands @ Tue Apr 22, 2025 7am - 7:30am (PDT) (Jorge Miguel Penalva Zambrano)
+2025-05-21 09:09:35,610 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-21 09:09:36,694 - __main__ - ERROR - Error checking contacts: <HttpError 429 when requesting https://people.googleapis.com/v1/otherContacts?pageSize=1000&readMask=emailAddresses&pageToken=GnAKRgAiGQvEAAAALQi4F0j52_u6-bSNA2IfNHdYOTMtUTRCSmNhME1sbEw0OWVHN2toenJjNWJ4azDWV31vi23eIuTBsRnXbl0QAhokNjgyZDQ4MDQtMDAwMC0yMjBkLTg1NzMtNzQ3NDQ2ZmUwNDU4&alt=json returned "Quota exceeded for quota metric 'Critical read requests (Contact and Profile Reads)' and limit 'Critical read requests (Contact and Profile Reads) per minute per user' of service 'people.googleapis.com' for consumer 'project_number:485273487342'.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'RATE_LIMIT_EXCEEDED', 'domain': 'googleapis.com', 'metadata': {'quota_metric': 'people.googleapis.com/critical_read_requests', 'service': 'people.googleapis.com', 'consumer': 'projects/485273487342', 'quota_location': 'global', 'quota_limit': 'CriticalReadsPerMinutePerProjectPerUser', 'quota_unit': '1/min/{project}/{user}', 'quota_limit_value': '60'}}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Request a higher quota limit.', 'url': 'https://cloud.google.com/docs/quotas/help/request_increase'}]}]">
+2025-05-21 09:09:38,025 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-21 09:09:38,028 - __main__ - INFO - Email analysis result: NO
+2025-05-21 09:09:38,029 - __main__ - INFO - Non-spam email left unread: Updated invitation: Weekly All-Hands @ Tue Apr 22, 2025 7am - 7:30am (PDT) (Jorge Miguel Penalva Zambrano)
+2025-05-21 09:09:38,029 - __main__ - INFO - Email processing completed
+2025-05-21 09:09:38,029 - __main__ - INFO - Email analyzer service started
+2025-05-21 09:09:55,494 - __main__ - INFO - Email analyzer service stopped

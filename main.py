@@ -32,7 +32,9 @@ logger = logging.getLogger(__name__)
 # Gmail API scopes
 SCOPES = [
     'https://www.googleapis.com/auth/gmail.modify',
-    'https://www.googleapis.com/auth/contacts'
+    'https://www.googleapis.com/auth/contacts',
+    'https://www.googleapis.com/auth/contacts.other.readonly',
+    'https://www.googleapis.com/auth/directory.readonly'
 ]
 
 # Keyring service names
@@ -327,28 +329,33 @@ def send_summary_email(service):
         logger.error(f"Error sending summary email: {error}")
 
 def is_in_contacts(service, email_address):
-    """Check if the sender is in contacts (including Other Contacts)."""
+    """Check if the sender is in Other Contacts (paginated search)."""
     try:
-        # Get credentials and build the People API service
         creds = get_credentials()
         people_service = build('people', 'v1', credentials=creds)
-        
-        # Search for the email in contacts
-        results = people_service.people().searchContacts(
-            query=email_address,
-            readMask='emailAddresses'
-        ).execute()
-        
-        # Check if we found any matches
-        for person in results.get('results', []):
-            for email in person.get('person', {}).get('emailAddresses', []):
-                if email.get('value', '').lower() == email_address.lower():
-                    logger.info(f"Found {email_address} in contacts")
-                    return True
-        
-        logger.info(f"{email_address} not found in contacts")
+
+        page_token = None
+        target_email = email_address.lower()
+        while True:
+            results = people_service.otherContacts().list(
+                pageSize=1000,
+                readMask='emailAddresses',
+                pageToken=page_token
+            ).execute()
+
+            for person in results.get('otherContacts', []):
+                for email in person.get('emailAddresses', []):
+                    if email.get('value', '').lower() == target_email:
+                        logger.info(f"Found {email_address} in Other Contacts")
+                        return True
+
+            page_token = results.get('nextPageToken')
+            if not page_token:
+                break
+
+        logger.info(f"{email_address} not found in Other Contacts")
         return False
-        
+
     except HttpError as error:
         logger.error(f"Error checking contacts: {error}")
         return False
@@ -491,3 +498,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
