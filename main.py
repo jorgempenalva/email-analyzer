@@ -46,7 +46,7 @@ USER_ACCOUNT = 'default'
 PROCESSED_SPAM_LABEL = 'ProcessedBySpamFilter'
 
 # Add a global variable to track spam emails
-spam_emails = []
+# spam_emails = []  # Commented out as daily summary is disabled
 
 # Add a global variable to track last check time
 last_check_time = None
@@ -288,45 +288,49 @@ def extract_email_address(sender_string):
 
 def send_summary_email(service):
     """Send a summary email with information about identified spam emails."""
-    global spam_emails
+    # Functionality disabled
+    logger.info("Daily summary email functionality is currently disabled")
+    return
     
-    if not spam_emails:
-        logger.info("No spam emails to report in summary")
-        return
+    # global spam_emails
     
-    # Create the email content
-    email_body = "Here's a summary of emails identified as spam in the last 24 hours:\n\n"
+    # if not spam_emails:
+    #     logger.info("No spam emails to report in summary")
+    #     return
     
-    for email in spam_emails:
-        # Get a preview of the email body (first 100 characters)
-        preview = email['body'][:100] + "..." if len(email['body']) > 100 else email['body']
+    # # Create the email content
+    # email_body = "Here's a summary of emails identified as spam in the last 24 hours:\n\n"
+    
+    # for email in spam_emails:
+    #     # Get a preview of the email body (first 100 characters)
+    #     preview = email['body'][:100] + "..." if len(email['body']) > 100 else email['body']
         
-        email_body += f"Subject: {email['subject']}\n"
-        email_body += f"From: {email['sender']}\n"
-        email_body += f"Preview: {preview}\n\n"
-        email_body += "-" * 50 + "\n\n"
+    #     email_body += f"Subject: {email['subject']}\n"
+    #     email_body += f"From: {email['sender']}\n"
+    #     email_body += f"Preview: {preview}\n\n"
+    #     email_body += "-" * 50 + "\n\n"
     
-    # Create the message
-    message = MIMEText(email_body)
-    message['to'] = 'me'  # Send to yourself
-    message['subject'] = f'Spam Email Summary - {datetime.now().strftime("%Y-%m-%d")}'
+    # # Create the message
+    # message = MIMEText(email_body)
+    # message['to'] = 'me'  # Send to yourself
+    # message['subject'] = f'Spam Email Summary - {datetime.now().strftime("%Y-%m-%d")}'
     
-    # Encode the message
-    raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode('utf-8')
+    # # Encode the message
+    # raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode('utf-8')
     
-    try:
-        # Send the email
-        service.users().messages().send(
-            userId='me',
-            body={'raw': raw_message}
-        ).execute()
+    # try:
+    #     # Send the email
+    #     service.users().messages().send(
+    #         userId='me',
+    #         body={'raw': raw_message}
+    #     ).execute()
         
-        logger.info(f"Summary email sent with {len(spam_emails)} spam emails")
+    #     logger.info(f"Summary email sent with {len(spam_emails)} spam emails")
         
-        # Clear the spam emails list after sending
-        spam_emails = []
-    except HttpError as error:
-        logger.error(f"Error sending summary email: {error}")
+    #     # Clear the spam emails list after sending
+    #     spam_emails = []
+    # except HttpError as error:
+    #     logger.error(f"Error sending summary email: {error}")
 
 def is_in_contacts(service, email_address):
     """Check if the sender is in Other Contacts (paginated search)."""
@@ -378,7 +382,7 @@ def should_process_as_spam(service, client, email_content):
 
 def process_emails():
     """Main function to process emails."""
-    global spam_emails, last_check_time
+    global last_check_time
     
     try:
         logger.info("Starting email processing")
@@ -404,9 +408,6 @@ def process_emails():
             
             # Check if it should be processed as spam
             if should_process_as_spam(gmail_service, anthropic_client, email_content):
-                # First add to spam_emails list before moving to spam
-                spam_emails.append(email_content)
-                
                 # Move to spam folder
                 gmail_service.users().messages().modify(
                     userId='me',
@@ -432,21 +433,29 @@ def process_emails():
 
 def send_daily_summary():
     """Function to send daily summary of spam emails."""
-    try:
-        logger.info("Sending daily summary email")
-        gmail_service = get_gmail_service()
-        send_summary_email(gmail_service)
-    except Exception as e:
-        logger.error(f"Error sending daily summary: {e}")
+    # Functionality disabled
+    logger.info("Daily summary email functionality is currently disabled")
+    return
+    
+    # try:
+    #     logger.info("Sending daily summary email")
+    #     gmail_service = get_gmail_service()
+    #     send_summary_email(gmail_service)
+    # except Exception as e:
+    #     logger.error(f"Error sending daily summary: {e}")
 
 def send_manual_summary():
     """Function to manually send a summary of spam emails collected so far."""
-    try:
-        logger.info("Manually sending summary email")
-        gmail_service = get_gmail_service()
-        send_summary_email(gmail_service)
-    except Exception as e:
-        logger.error(f"Error sending manual summary: {e}")
+    # Functionality disabled
+    logger.info("Manual summary email functionality is currently disabled")
+    return
+    
+    # try:
+    #     logger.info("Manually sending summary email")
+    #     gmail_service = get_gmail_service()
+    #     send_summary_email(gmail_service)
+    # except Exception as e:
+    #     logger.error(f"Error sending manual summary: {e}")
 
 def setup_keyring():
     """Initial setup to store credentials in keyring."""
@@ -483,7 +492,7 @@ def main():
         schedule.every(5).minutes.do(process_emails)
         
         # Schedule daily summary email at 8:00 AM
-        schedule.every().day.at("08:00").do(send_daily_summary)
+        # schedule.every().day.at("08:00").do(send_daily_summary)  # Commented out
         
         logger.info("Email analyzer service started")
         
