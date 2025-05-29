@@ -2,6 +2,7 @@ import os
 import base64
 import time
 import logging
+from logging.handlers import RotatingFileHandler
 from email.mime.text import MIMEText
 from datetime import datetime, timedelta
 
@@ -23,7 +24,12 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("email_analyzer.log"),
+        RotatingFileHandler(
+            "email_analyzer.log",
+            maxBytes=10*1024*1024,  # 10MB per file
+            backupCount=0,  # No backup files
+            encoding='utf-8'
+        ),
         logging.StreamHandler()
     ]
 )
@@ -489,7 +495,7 @@ def main():
         process_emails()
         
         # Schedule to run every hour
-        schedule.every(5).minutes.do(process_emails)
+        schedule.every(10).minutes.do(process_emails)
         
         # Schedule daily summary email at 8:00 AM
         # schedule.every().day.at("08:00").do(send_daily_summary)  # Commented out
