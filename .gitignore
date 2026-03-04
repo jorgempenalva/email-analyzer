@@ -22,3 +22,4 @@ build/
 *.log
 
 email_analyzer.log
+debug.py
