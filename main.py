@@ -134,7 +134,7 @@ def get_credentials():
 
             try:
                 flow = InstalledAppFlow.from_client_secrets_file(temp_path, SCOPES)
-                creds = flow.run_local_server(port=0)
+                creds = flow.run_local_server(port=8090)
             finally:
                 os.unlink(temp_path)
         
