@@ -2,6 +2,8 @@ import os
 import base64
 import time
 import logging
+import traceback
+import functools
 from logging.handlers import RotatingFileHandler
 from email.mime.text import MIMEText
 from datetime import datetime, timedelta
@@ -57,6 +59,34 @@ PROCESSED_SPAM_LABEL = 'ProcessedBySpamFilter'
 # Add a global variable to track last check time
 last_check_time = None
 
+# Transient HTTP status codes that should be retried
+RETRYABLE_STATUS_CODES = {429, 500, 502, 503}
+
+def retry_on_google_error(max_retries=3):
+    """Decorator that retries on transient Google API errors with exponential backoff."""
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            for attempt in range(max_retries + 1):
+                try:
+                    return func(*args, **kwargs)
+                except HttpError as e:
+                    if e.resp.status in RETRYABLE_STATUS_CODES and attempt < max_retries:
+                        wait = 2 ** attempt  # 1s, 2s, 4s
+                        logger.warning(f"{func.__name__} got HTTP {e.resp.status}, retrying in {wait}s (attempt {attempt + 1}/{max_retries})")
+                        time.sleep(wait)
+                    else:
+                        raise
+                except (ConnectionError, TimeoutError, OSError) as e:
+                    if attempt < max_retries:
+                        wait = 2 ** attempt
+                        logger.warning(f"{func.__name__} got {type(e).__name__}, retrying in {wait}s (attempt {attempt + 1}/{max_retries})")
+                        time.sleep(wait)
+                    else:
+                        raise
+        return wrapper
+    return decorator
+
 def get_credentials():
     """Get and refresh Google OAuth credentials."""
     creds = None
@@ -69,24 +99,39 @@ def get_credentials():
     # If credentials don't exist, are invalid, or scopes have changed, let the user log in
     if not creds or not creds.valid or set(creds.scopes) != set(SCOPES):
         if creds and creds.expired and creds.refresh_token:
-            try:
-                creds.refresh(Request())
-            except:
-                # If refresh fails, we'll need to re-authenticate
-                creds = None
-        
+            # Retry token refresh with backoff — transient network errors are common
+            for attempt in range(3):
+                try:
+                    creds.refresh(Request())
+                    break
+                except Exception as e:
+                    logger.warning(f"Token refresh attempt {attempt + 1}/3 failed: {e}")
+                    if attempt < 2:
+                        time.sleep(2 ** attempt)
+                    else:
+                        logger.error(f"Token refresh failed after 3 attempts: {e}")
+                        creds = None
+
         if not creds:
+            # Check if we're on a headless server (no display available)
+            if not os.environ.get('DISPLAY') and not os.environ.get('WAYLAND_DISPLAY') and os.name != 'nt':
+                raise RuntimeError(
+                    "OAuth refresh token expired and no display available for re-authentication. "
+                    "Re-authenticate via SSH tunnel: ssh -L 8080:localhost:8080 server, "
+                    "then run: python main.py --reauth"
+                )
+
             # Load client secrets from keyring
             client_secrets = keyring.get_password(f"{GOOGLE_CREDS_SERVICE}_secrets", USER_ACCOUNT)
             if not client_secrets:
                 raise ValueError("Google client secrets not found in keyring")
-            
+
             import json
             import tempfile
             with tempfile.NamedTemporaryFile(mode='w+', delete=False) as temp:
                 temp.write(client_secrets)
                 temp_path = temp.name
-            
+
             try:
                 flow = InstalledAppFlow.from_client_secrets_file(temp_path, SCOPES)
                 creds = flow.run_local_server(port=0)
@@ -115,6 +160,7 @@ def get_gmail_service():
     creds = get_credentials()
     return build('gmail', 'v1', credentials=creds)
 
+@retry_on_google_error()
 def get_unread_emails(service, max_results=10):
     """Get unread emails from the inbox."""
     global last_check_time
@@ -145,6 +191,7 @@ def get_unread_emails(service, max_results=10):
         logger.error(f"Error retrieving emails: {error}")
         return []
 
+@retry_on_google_error()
 def get_email_content(service, msg_id):
     """Get the content of an email."""
     try:
@@ -217,6 +264,7 @@ def is_sales_outreach(client, email_content):
         logger.error(f"Error analyzing email with Claude: {e}")
         return False, "Error analyzing email"
 
+@retry_on_google_error()
 def create_custom_label(service):
     """Create a custom label if it doesn't exist."""
     try:
@@ -242,6 +290,7 @@ def create_custom_label(service):
         logger.error(f"Error creating custom label: {error}")
         return None
 
+@retry_on_google_error()
 def move_to_spam_and_block(service, email_data):
     """Move email to spam and block the sender."""
     try:
@@ -338,14 +387,15 @@ def send_summary_email(service):
     # except HttpError as error:
     #     logger.error(f"Error sending summary email: {error}")
 
-def is_in_contacts(service, email_address):
-    """Check if the sender is in Other Contacts (paginated search)."""
+@retry_on_google_error()
+def fetch_all_contact_emails():
+    """Fetch all email addresses from Other Contacts in one batch. Returns a set of lowercase emails."""
+    contact_emails = set()
     try:
         creds = get_credentials()
         people_service = build('people', 'v1', credentials=creds)
 
         page_token = None
-        target_email = email_address.lower()
         while True:
             results = people_service.otherContacts().list(
                 pageSize=1000,
@@ -355,33 +405,33 @@ def is_in_contacts(service, email_address):
 
             for person in results.get('otherContacts', []):
                 for email in person.get('emailAddresses', []):
-                    if email.get('value', '').lower() == target_email:
-                        logger.info(f"Found {email_address} in Other Contacts")
-                        return True
+                    addr = email.get('value', '').lower()
+                    if addr:
+                        contact_emails.add(addr)
 
             page_token = results.get('nextPageToken')
             if not page_token:
                 break
 
-        logger.info(f"{email_address} not found in Other Contacts")
-        return False
+        logger.info(f"Cached {len(contact_emails)} contact emails for this cycle")
+    except Exception as e:
+        logger.error(f"Error fetching contacts: {e}")
 
-    except HttpError as error:
-        logger.error(f"Error checking contacts: {error}")
-        return False
+    return contact_emails
 
-def should_process_as_spam(service, client, email_content):
+def should_process_as_spam(service, client, email_content, contact_emails=None):
     """Determine if an email should be processed as spam."""
     # Extract email address from sender
     email_address = extract_email_address(email_content['sender'])
     if not email_address:
         return False
-    
-    # First check if it's in contacts
-    if is_in_contacts(service, email_address):
-        logger.info(f"Sender {email_address} is in contacts - skipping spam check")
-        return False
-    
+
+    # Check against cached contacts set
+    if contact_emails is not None:
+        if email_address.lower() in contact_emails:
+            logger.info(f"Sender {email_address} is in contacts - skipping spam check")
+            return False
+
     # If not in contacts, check if it's sales outreach
     is_sales, _ = is_sales_outreach(client, email_content)
     return is_sales
@@ -392,28 +442,31 @@ def process_emails():
     
     try:
         logger.info("Starting email processing")
-        
+
         # Get services
         gmail_service = get_gmail_service()
         anthropic_client = get_anthropic_client()
-        
+
+        # Cache all contact emails once per cycle
+        contact_emails = fetch_all_contact_emails()
+
         # Get unread emails
         unread_emails = get_unread_emails(gmail_service)
         logger.info(f"Found {len(unread_emails)} unread emails since last check")
-        
+
         if not unread_emails:
             logger.info("No new emails to process")
             return
-        
+
         for email in unread_emails:
             email_content = get_email_content(gmail_service, email['id'])
             if not email_content:
                 continue
-                
+
             logger.info(f"Processing email: {email_content['subject']}")
-            
+
             # Check if it should be processed as spam
-            if should_process_as_spam(gmail_service, anthropic_client, email_content):
+            if should_process_as_spam(gmail_service, anthropic_client, email_content, contact_emails):
                 # Move to spam folder
                 gmail_service.users().messages().modify(
                     userId='me',
@@ -421,7 +474,7 @@ def process_emails():
                     body={'addLabelIds': ['SPAM']}
                 ).execute()
                 logger.info(f"Email moved to spam: {email_content['subject']}")
-                
+
                 # Mark as read
                 gmail_service.users().messages().modify(
                     userId='me',
@@ -432,10 +485,11 @@ def process_emails():
             else:
                 # Do nothing - leave unread for review
                 logger.info(f"Non-spam email left unread: {email_content['subject']}")
-                
+
         logger.info("Email processing completed")
     except Exception as e:
-        logger.error(f"Error in process_emails: {e}")
+        logger.error(f"Error in process_emails: {traceback.format_exc()}")
+        logger.info("Will retry on next scheduled cycle")
 
 def send_daily_summary():
     """Function to send daily summary of spam emails."""
@@ -479,37 +533,40 @@ def setup_keyring():
 
 def main():
     """Main entry point for the application."""
-    try:
-        # Check if credentials are set up
-        if (not keyring.get_password(f"{GOOGLE_CREDS_SERVICE}_secrets", USER_ACCOUNT) or
-            not keyring.get_password(ANTHROPIC_API_KEY_SERVICE, USER_ACCOUNT)):
-            setup_keyring()
-            
-        # Check for command line arguments
-        import sys
-        if len(sys.argv) > 1 and sys.argv[1] == "--send-summary":
-            send_manual_summary()
-            return
-        
-        # Process emails immediately
-        process_emails()
-        
-        # Schedule to run every hour
-        schedule.every(10).minutes.do(process_emails)
-        
-        # Schedule daily summary email at 8:00 AM
-        # schedule.every().day.at("08:00").do(send_daily_summary)  # Commented out
-        
-        logger.info("Email analyzer service started")
-        
-        # Keep the script running
-        while True:
+    # Check if credentials are set up
+    if (not keyring.get_password(f"{GOOGLE_CREDS_SERVICE}_secrets", USER_ACCOUNT) or
+        not keyring.get_password(ANTHROPIC_API_KEY_SERVICE, USER_ACCOUNT)):
+        setup_keyring()
+
+    # Check for command line arguments
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "--send-summary":
+        send_manual_summary()
+        return
+
+    # Process emails immediately
+    process_emails()
+
+    # Schedule to run every hour
+    schedule.every(10).minutes.do(process_emails)
+
+    # Schedule daily summary email at 8:00 AM
+    # schedule.every().day.at("08:00").do(send_daily_summary)  # Commented out
+
+    logger.info("Email analyzer service started")
+
+    # Keep the script running — try/except inside the loop so crashes don't kill the process
+    while True:
+        try:
             schedule.run_pending()
             time.sleep(1)
-    except KeyboardInterrupt:
-        logger.info("Email analyzer service stopped")
-    except Exception as e:
-        logger.error(f"Error in main function: {e}")
+        except KeyboardInterrupt:
+            logger.info("Email analyzer service stopped")
+            break
+        except Exception as e:
+            logger.error(f"Unexpected error in main loop:\n{traceback.format_exc()}")
+            logger.info("Sleeping 60s before resuming scheduler loop...")
+            time.sleep(60)
 
 if __name__ == "__main__":
     main()
